@@ -1,25 +1,27 @@
 ## INSTALATION
 
-clone the repo: `git clone https://github.com/neumann-mlucas/word_counter_ui`
+clone the repo with: `git clone https://github.com/neumann-mlucas/word_counter_ui`
 
 to install the python packages with pipenv you can just run: `pipenv install`
+
 or with pip and venv:
 
 ```
 python -m venv venv
-./venv/Scripts/activate
+source venv/bin/activate
 pip install -r requiriments.txt
 ```
 
-# RUNNING THE WEB SERVER
+## RUNNING THE WEB SERVER
 
 ```
-pipenv shell
-uvicorn main:app --host 0.0.0.0 --port 8000
+pipenv shell # or: source venv/bin/activate
+uvicorn main:app --host 0.0.0.0 --port 80
 ```
 
-- unit tests
-- pre-commit hocks
-- docker file
-- readme
-- make textarea width dynamic
+## DEPLOY WITH DOCKER
+
+```
+docker build -t word-counter-ui .
+docker run -d --name wordcounter -p 80:80 word_counter_ui
+```
